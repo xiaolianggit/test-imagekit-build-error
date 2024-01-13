@@ -1,7 +1,14 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
+import ImageKit from "imagekit";
 
 export default function Home() {
+  const imagekit = new ImageKit({
+    publicKey: process.env.IMAGEKIT_KEY!!,
+    privateKey: process.env.IMAGEKIT_KEY!!,
+    urlEndpoint: "url endpoint",
+  });
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -15,7 +22,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -91,5 +98,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
